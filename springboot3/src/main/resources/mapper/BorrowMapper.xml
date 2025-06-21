@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.springboot3.mapper.BorrowMapper">
+
+    <!-- 借阅记录映射 -->
+    <resultMap id="borrowRecordMap" type="com.example.springboot3.entity.BorrowRecord">
+        <id property="id" column="id"/>
+        <result property="no" column="no"/>
+        <result property="title" column="title"/>
+        <result property="borrowTime" column="borrow_time"/>
+        <result property="returnTime" column="return_time"/>
+        <result property="fine" column="fine"/>
+    </resultMap>
+
+    <!-- 插入借阅记录 -->
+    <insert id="insertBorrowRecord" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO borrow_record (no, title, borrow_time)
+        VALUES (#{no}, #{title}, #{borrowTime})
+    </insert>
+
+    <!-- 更新归还时间与罚款 -->
+    <update id="updateReturnTime">
+        UPDATE borrow_record
+        SET return_time = #{returnTime}, fine = #{fine}
+        WHERE no = #{no} AND title = #{title} AND return_time IS NULL
+    </update>
+
+    <!-- 按学号查询借阅记录 -->
+    <select id="findByNo" resultMap="borrowRecordMap">
+        SELECT * FROM borrow_record
+        WHERE no = #{no}
+        ORDER BY borrow_time DESC
+    </select>
+
+    <!-- 查询所有记录（管理员） -->
+    <select id="findAll" resultMap="borrowRecordMap">
+        SELECT * FROM borrow_record
+        ORDER BY borrow_time DESC
+    </select>
+
+    <!-- 根据图书ID查借阅记录 -->
+    <select id="selectByBookId" resultMap="borrowRecordMap">
+        SELECT * FROM borrow_record
+        WHERE id = #{bookId}
+    </select>
+
+    <!-- 查询学生是否已借某书且未归还 -->
+    <select id="findByNoAndTitleAndReturnTimeIsNull" resultMap="borrowRecordMap">
+        SELECT * FROM borrow_record
+        WHERE no = #{no} AND title = #{title} AND return_time IS NULL
+    </select>
+
+    <!-- 统计借阅总数 -->
+    <select id="countBorrowedBooksByNo" resultType="int">
+        SELECT COUNT(*)
+        FROM borrow_record
+        WHERE no = #{no}
+    </select>
+
+    <!-- 统计已归还数 -->
+    <select id="countReturnedBooksByNo" resultType="int">
+        SELECT COUNT(*)
+        FROM borrow_record
+        WHERE no = #{no} AND return_time IS NOT NULL
+    </select>
+
+    <!-- ================= 借阅规则配置 ================= -->
+
+    <!-- 借阅规则映射 -->
+    <resultMap id="borrowRuleMap" type="com.example.springboot3.entity.BorrowRule">
+        <id property="id" column="id"/>
+        <result property="maxBooks" column="max_books"/>
+        <result property="borrowDays" column="borrow_days"/>
+        <result property="maxRenewals" column="max_renewals"/>
+        <result property="renewalDays" column="renewal_days"/>
+        <result property="finePerDay" column="fine_per_day"/>
+    </resultMap>
+
+    <!-- 获取规则（建议固定ID为1） -->
+    <select id="getBorrowRule" resultMap="borrowRuleMap">
+        SELECT * FROM borrow_rule WHERE id = 1
+    </select>
+
+    <!-- 插入规则（第一次设置） -->
+    <insert id="insertBorrowRule">
+        INSERT INTO borrow_rule (id, max_books, borrow_days, max_renewals, renewal_days, fine_per_day)
+        VALUES (1, #{maxBooks}, #{borrowDays}, #{maxRenewals}, #{renewalDays}, #{finePerDay})
+    </insert>
+
+    <!-- 更新规则 -->
+    <update id="updateBorrowRule">
+        UPDATE borrow_rule
+        SET max_books = #{maxBooks},
+            borrow_days = #{borrowDays},
+            max_renewals = #{maxRenewals},
+            renewal_days = #{renewalDays},
+            fine_per_day = #{finePerDay}
+        WHERE id = 1
+    </update>
+
+    <select id="selectById" resultType="com.example.springboot3.entity.BorrowRecord">
+        SELECT * FROM borrow_record WHERE id = #{id}
+    </select>
+
+    <update id="updatePayTimeById" parameterType="map">
+        UPDATE borrow_record
+        SET pay_time = #{payTime}
+        WHERE id = #{id}
+    </update>
+
+
+</mapper>

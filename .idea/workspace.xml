@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="811b3d42-13a6-4c0e-8b4f-140b0fb2a7af" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="spring-beans.schema" />
+        <option value="Class" />
+        <option value="Vue Composition API Component" />
+      </list>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="customMavenHome" value="C:\software\apache-maven-3.8.1" />
+        <option name="localRepository" value="C:\software\apache-maven-3.8.1\repo" />
+        <option name="mavenHomeTypeForPersistence" value="CUSTOM" />
+        <option name="userSettingsFile" value="C:\software\apache-maven-3.8.1\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2tmjWw4R4I7rze4pCz9yCU3fQwU" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Notification.DisplayName-DoNotAsk-JavaScript: Code Vision Performance&quot;: &quot;JavaScript: Code Vision 性能观察程序&quot;,
+    &quot;Notification.DoNotAsk-JavaScript: Code Vision Performance&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.Springboot3Application.executor&quot;: &quot;Run&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/make1/Desktop/vue3&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\training\\IntelliJ IDEA 2023.3.8\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
+    ],
+    &quot;vue.recent.templates&quot;: [
+      &quot;Vue Composition API Component&quot;
+    ]
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.springboot3.controller" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\make1\Desktop\project\project\vue3\src\assets" />
+      <recent name="D:\Springboot3_Vue3\class4\vue3\src\assets" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\make1\Desktop\project\project\vue3\src\assets" />
+      <recent name="C:\Users\make1\Desktop\project\project\springboot3\src\main\resources\static" />
+    </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="com.example.springboot3.service" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="pip install -r requirements.txt" />
+    </option>
+  </component>
+  <component name="RunManager" selected="npm.dev">
+    <configuration name="Springboot3Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="springboot3" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.springboot3.Springboot3Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/vue3/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.dev" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="811b3d42-13a6-4c0e-8b4f-140b0fb2a7af" name="Changes" comment="" />
+      <created>1740964178735</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1740964178735</updated>
+      <workItem from="1740964179943" duration="219000" />
+      <workItem from="1740964404118" duration="1166000" />
+      <workItem from="1740966280208" duration="46000" />
+      <workItem from="1740966346370" duration="37000" />
+      <workItem from="1740966423836" duration="445000" />
+      <workItem from="1740966881496" duration="11000" />
+      <workItem from="1740967677112" duration="40000" />
+      <workItem from="1740968869622" duration="129000" />
+      <workItem from="1740969136011" duration="13718000" />
+      <workItem from="1741049322841" duration="62000" />
+      <workItem from="1741069853956" duration="328000" />
+      <workItem from="1741070200646" duration="13000" />
+      <workItem from="1741070305855" duration="21000" />
+      <workItem from="1741070337721" duration="37000" />
+      <workItem from="1741070606867" duration="4679000" />
+      <workItem from="1741135080258" duration="68000" />
+      <workItem from="1741568758918" duration="1031000" />
+      <workItem from="1741569800377" duration="1960000" />
+      <workItem from="1741573734609" duration="3917000" />
+      <workItem from="1741577889611" duration="11168000" />
+      <workItem from="1741596742484" duration="1669000" />
+      <workItem from="1741654891584" duration="634000" />
+      <workItem from="1742172250140" duration="1601000" />
+      <workItem from="1742176395155" duration="10000" />
+      <workItem from="1742176492042" duration="5993000" />
+      <workItem from="1742184252614" duration="7392000" />
+      <workItem from="1742624633530" duration="17802000" />
+      <workItem from="1742642999922" duration="542000" />
+      <workItem from="1742644166721" duration="9415000" />
+      <workItem from="1742692677999" duration="2760000" />
+      <workItem from="1742695497795" duration="7357000" />
+      <workItem from="1742733183907" duration="614000" />
+      <workItem from="1743850114157" duration="930000" />
+      <workItem from="1743851245840" duration="724000" />
+      <workItem from="1743852364053" duration="2049000" />
+      <workItem from="1743858322951" duration="1474000" />
+      <workItem from="1743919512499" duration="18498000" />
+      <workItem from="1743941541433" duration="6429000" />
+      <workItem from="1743987700111" duration="10138000" />
+      <workItem from="1744005851273" duration="10699000" />
+      <workItem from="1744025640504" duration="11233000" />
+      <workItem from="1744090603583" duration="12454000" />
+      <workItem from="1744179073365" duration="3905000" />
+      <workItem from="1744186338542" duration="223000" />
+      <workItem from="1744274543491" duration="5828000" />
+      <workItem from="1744286502364" duration="8123000" />
+      <workItem from="1744447311904" duration="179000" />
+      <workItem from="1744447524059" duration="10956000" />
+      <workItem from="1744608606833" duration="7120000" />
+      <workItem from="1744616604643" duration="331000" />
+      <workItem from="1744790448087" duration="3371000" />
+      <workItem from="1744798032029" duration="2505000" />
+      <workItem from="1744805725231" duration="2221000" />
+      <workItem from="1745216236178" duration="5033000" />
+      <workItem from="1745222889526" duration="3912000" />
+      <workItem from="1745228228719" duration="5506000" />
+      <workItem from="1745388736474" duration="1968000" />
+      <workItem from="1745405476028" duration="8789000" />
+      <workItem from="1745571920870" duration="296000" />
+      <workItem from="1745733583240" duration="3546000" />
+      <workItem from="1745820490850" duration="3779000" />
+      <workItem from="1747030453686" duration="5254000" />
+      <workItem from="1747202086735" duration="2775000" />
+      <workItem from="1747633991388" duration="1878000" />
+      <workItem from="1747660164099" duration="703000" />
+      <workItem from="1748092750080" duration="1150000" />
+      <workItem from="1748173429959" duration="2299000" />
+      <workItem from="1748309905447" duration="685000" />
+      <workItem from="1748857793785" duration="3092000" />
+      <workItem from="1748867099168" duration="36000" />
+      <workItem from="1748940585601" duration="5490000" />
+      <workItem from="1749017786062" duration="1122000" />
+      <workItem from="1749030079130" duration="878000" />
+      <workItem from="1749294856927" duration="370000" />
+      <workItem from="1749468165416" duration="20000" />
+      <workItem from="1749819495358" duration="81000" />
+      <workItem from="1749886343649" duration="12620000" />
+      <workItem from="1749903290362" duration="9367000" />
+      <workItem from="1750333751401" duration="22141000" />
+      <workItem from="1750392138573" duration="13433000" />
+      <workItem from="1750418671007" duration="1621000" />
+      <workItem from="1750484646884" duration="621000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.ArithmeticException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile" memberName="filename" />
+      </pinned-members>
+    </pin-to-top-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

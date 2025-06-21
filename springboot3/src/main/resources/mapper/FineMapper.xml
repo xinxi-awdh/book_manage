@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.springboot3.mapper.FineMapper">
+
+    <!-- 结果映射，解决驼峰与下划线映射问题 -->
+    <resultMap id="FineRecordMap" type="com.example.springboot3.entity.FineRecord">
+        <id property="id" column="id" />
+        <result property="no" column="no" />
+        <result property="title" column="title" />
+        <result property="borrowTime" column="borrow_time" />
+        <result property="returnTime" column="return_time" />
+        <result property="amount" column="amount" />
+        <result property="paid" column="paid" />
+        <result property="payTime" column="pay_time" />
+        <result property="description" column="description" />
+        <result property="createdTime" column="created_time" />
+        <result property="type" column="type" />
+    </resultMap>
+
+    <!-- 查询罚款和赔偿记录，支持按学号、书名、类型筛选 -->
+    <select id="selectFineRecords" resultMap="FineRecordMap" parameterType="map">
+        SELECT id, no, title, borrow_time, return_time, type, amount, paid, pay_time, description, created_time
+        FROM fine_record
+        <where>
+            <if test="no != null and no != ''">
+                AND no = #{no}
+            </if>
+            <if test="title != null and title != ''">
+                AND title LIKE CONCAT('%', #{title}, '%')
+            </if>
+            <if test="type != null and type != ''">
+                AND type = #{type}
+            </if>
+        </where>
+        ORDER BY created_time DESC
+    </select>
+
+    <!-- 查询全部罚款和超期罚款记录，合并返回 -->
+    <select id="selectAllFineRecords" resultMap="FineRecordMap" parameterType="map">
+        <bind name="titleLike" value="'%' + (title != null ? title : '') + '%'" />
+        <bind name="noVal" value="no" />
+
+        SELECT
+        id,
+        no,
+        title,
+        borrow_time,
+        return_time,
+        amount,
+        paid,
+        pay_time,
+        description,
+        created_time,
+        type
+        FROM fine_record
+        <where>
+            <if test="no != null and no != ''">
+                AND no = #{noVal}
+            </if>
+            <if test="title != null and title != ''">
+                AND title LIKE #{titleLike}
+            </if>
+        </where>
+
+        UNION ALL
+
+        SELECT
+        id + 1000000 AS id,
+        no,
+        title,
+        borrow_time,
+        return_time,
+        fine AS amount,
+        false AS paid,
+        NULL AS pay_time,
+        '超期罚款' AS description,
+        NULL AS created_time,
+        'overdue' AS type
+        FROM borrow_record
+        WHERE fine > 0
+        AND pay_time IS NULL
+        <if test="no != null and no != ''">
+            AND no = #{noVal}
+        </if>
+        <if test="title != null and title != ''">
+            AND title LIKE #{titleLike}
+        </if>
+        AND NOT EXISTS (
+        SELECT 1 FROM fine_record fr
+        WHERE fr.borrow_time = borrow_record.borrow_time
+        AND fr.no = borrow_record.no
+        AND fr.type = 'overdue'
+        )
+
+        ORDER BY
+        CASE WHEN created_time IS NULL THEN 1 ELSE 0 END,
+        created_time DESC,
+        borrow_time DESC
+    </select>
+
+    <!-- 罚款缴纳，更新 fine_record -->
+    <update id="payFineRecord" parameterType="map">
+        UPDATE fine_record
+        SET paid = true,
+            pay_time = #{payTime}
+        WHERE id = #{id}
+    </update>
+
+    <!-- 仅当是超期罚款时，更新 borrow_record 表的缴纳时间 -->
+    <update id="updateBorrowPayTimeIfOverdue" parameterType="map">
+        UPDATE borrow_record
+        SET pay_time = #{payTime}
+        WHERE EXISTS (
+            SELECT 1 FROM fine_record fr
+            WHERE fr.id = #{id}
+              AND fr.no = borrow_record.no
+              AND fr.borrow_time = borrow_record.borrow_time
+              AND fr.type = 'overdue'
+        )
+    </update>
+
+    <!-- 新增罚款或赔偿记录 -->
+    <insert id="insertFineRecord" parameterType="com.example.springboot3.entity.FineRecord" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO fine_record (no, title, borrow_time, return_time, type, amount, paid, pay_time, description, created_time)
+        VALUES (#{no}, #{title}, #{borrowTime}, #{returnTime}, #{type}, #{amount}, #{paid}, #{payTime}, #{description}, NOW())
+    </insert>
+
+</mapper>

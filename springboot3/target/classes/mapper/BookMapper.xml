@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.springboot3.mapper.BookMapper">
+
+    <resultMap id="BookResultMap" type="com.example.springboot3.entity.Book">
+        <result property="id" column="id"/>
+        <result property="isbn" column="isbn"/>
+        <result property="title" column="title"/>
+        <result property="author" column="author"/>
+        <result property="publisher" column="publisher"/>
+        <result property="publishDate" column="publish_date"/>
+        <result property="categoryCode" column="category_code"/>
+        <result property="price" column="price"/>
+        <result property="cover" column="cover"/>
+        <result property="description" column="description"/>
+        <result property="total" column="total"/>
+        <result property="stock" column="stock"/>
+        <result property="status" column="status"/>
+    </resultMap>
+
+    <!-- 插入新书籍 -->
+    <insert id="addBook" parameterType="com.example.springboot3.entity.Book" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO book (
+            isbn, title, author, publisher, publish_date, category_code, price, cover, description, total, stock, status
+        ) VALUES (
+                     #{isbn}, #{title}, #{author}, #{publisher}, #{publishDate}, #{categoryCode}, #{price}, #{cover}, #{description}, #{total}, #{stock}, #{status}
+                 )
+    </insert>
+
+    <!-- 更新书籍信息 -->
+    <update id="update" parameterType="com.example.springboot3.entity.Book">
+        UPDATE book
+        SET
+            isbn = #{isbn},
+            title = #{title},
+            author = #{author},
+            publisher = #{publisher},
+            publish_date = #{publishDate},
+            category_code = #{categoryCode},
+            price = #{price},
+            cover = #{cover},
+            description = #{description},
+            total = #{total},
+            stock = #{stock},
+            status = #{status}
+        WHERE id = #{id}
+    </update>
+
+
+
+    <!-- 根据书籍 ID 查询 -->
+    <select id="selectById" resultMap="BookResultMap" parameterType="java.lang.Integer">
+        SELECT * FROM book WHERE id = #{id}
+    </select>
+
+    <!-- 删除书籍 -->
+    <delete id="deleteById" parameterType="java.lang.Integer">
+        DELETE FROM book WHERE id = #{id}
+    </delete>
+
+    <!-- 查询所有书籍，支持名字和作者过滤 -->
+    <select id="selectAll" resultMap="BookResultMap" parameterType="map">
+        SELECT * FROM book
+        <where>
+            <if test="title != null and title != ''">
+                AND title LIKE CONCAT('%', #{title}, '%')
+            </if>
+            <if test="author != null and author != ''">
+                AND author LIKE CONCAT('%', #{author}, '%')
+            </if>
+        </where>
+        ORDER BY id DESC
+    </select>
+
+    <!-- 书籍条件查询 -->
+    <select id="selectByConditions" resultMap="BookResultMap" parameterType="map">
+        SELECT * FROM book
+        <where>
+            <if test="title != null and title != ''">
+                AND title LIKE CONCAT('%', #{title}, '%')
+            </if>
+            <if test="author != null and author != ''">
+                AND author LIKE CONCAT('%', #{author}, '%')
+            </if>
+            <if test="isbn != null and isbn != ''">
+                AND isbn LIKE CONCAT('%', #{isbn}, '%')
+            </if>
+            <if test="categoryCode != null and categoryCode != ''">
+                AND category_code = #{categoryCode}
+            </if>
+            <if test="keyword != null and keyword != ''">
+                AND (
+                title LIKE CONCAT('%', #{keyword}, '%')
+                OR author LIKE CONCAT('%', #{keyword}, '%')
+                OR publisher LIKE CONCAT('%', #{keyword}, '%')
+                OR description LIKE CONCAT('%', #{keyword}, '%')
+                )
+            </if>
+        </where>
+        ORDER BY id DESC
+    </select>
+
+
+</mapper>
