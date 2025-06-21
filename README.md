@@ -64,6 +64,6 @@ npm run serve
 
 欢迎提交 issue 和 pull request！
 
-## License
 
-MIT
+
+
